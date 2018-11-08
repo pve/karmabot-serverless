@@ -106,7 +106,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/karmabot-tutorial/dev/1541687535758-2018-11-08T14:32:15.758Z/karmabot-tutorial.zip"
+                "S3Key": "serverless/karmabot-tutorial/dev/1541707309043-2018-11-08T20:01:49.043Z/karmabot-tutorial.zip"
               },
               "FunctionName": "karmabot-tutorial-dev-event_receive",
               "Handler": "karmabot/event.receive",
@@ -125,14 +125,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "EventUnderscorereceiveLambdaVersionND4tv0RDGmqVcAf8K20SyOHSJlqKeluUdqRg8aVDE": {
+          "EventUnderscorereceiveLambdaVersionAu4cHk8OGGzVF8CpPe5b32JRE2oxORCX4516UIcpA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "EventUnderscorereceiveLambdaFunction"
               },
-              "CodeSha256": "CBUvOauZmu3Cwz/RUjw0NOQ4bXKjkGLRc3DeCT7KUxU="
+              "CodeSha256": "gxEui+Pzd8KYq+d2S9MAVCoUFtBJfgUW1HFI79a4Gz0="
             }
           },
           "ApiGatewayRestApi": {
@@ -263,7 +263,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1541687535774": {
+          "ApiGatewayDeployment1541707309060": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -333,7 +333,7 @@
           "EventUnderscorereceiveLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "EventUnderscorereceiveLambdaVersionND4tv0RDGmqVcAf8K20SyOHSJlqKeluUdqRg8aVDE"
+              "Ref": "EventUnderscorereceiveLambdaVersionAu4cHk8OGGzVF8CpPe5b32JRE2oxORCX4516UIcpA"
             }
           },
           "ServiceEndpoint": {
@@ -419,7 +419,7 @@
     "artifact": "/home/ec2-user/environment/karmabot-serverless/.serverless/karmabot-tutorial.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/karmabot-tutorial/dev/1541687535758-2018-11-08T14:32:15.758Z",
+    "artifactDirectoryName": "serverless/karmabot-tutorial/dev/1541707309043-2018-11-08T20:01:49.043Z",
     "artifact": "karmabot-tutorial.zip"
   }
 }
