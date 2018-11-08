@@ -6,6 +6,20 @@ provider:
   name: aws
   region: eu-west-1
   runtime: python3.6
+  environment:
+    KARMA_TABLE: ${self:service}-karma-${opt:stage, self:provider.stage}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 
+        - "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.KARMA_TABLE}"
 
 functions:
   event_receive:
@@ -16,3 +30,22 @@ functions:
           path: event/receive
           method: post
           cors: true
+
+resources:
+  Resources:
+    KarmaDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: karma_id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: karma_id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.KARMA_TABLE}

@@ -66,6 +66,20 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/karmabot-tutorial-dev-event_receive:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": [
+                    "arn:aws:dynamodb:eu-west-1:*:table/karmabot-tutorial-karma-dev"
+                  ]
                 }
               ]
             }
@@ -92,7 +106,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/karmabot-tutorial/dev/1541707309043-2018-11-08T20:01:49.043Z/karmabot-tutorial.zip"
+          "S3Key": "serverless/karmabot-tutorial/dev/1541709043658-2018-11-08T20:30:43.658Z/karmabot-tutorial.zip"
         },
         "FunctionName": "karmabot-tutorial-dev-event_receive",
         "Handler": "karmabot/event.receive",
@@ -104,21 +118,26 @@
           ]
         },
         "Runtime": "python3.6",
-        "Timeout": 6
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "KARMA_TABLE": "karmabot-tutorial-karma-dev"
+          }
+        }
       },
       "DependsOn": [
         "EventUnderscorereceiveLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "EventUnderscorereceiveLambdaVersionAu4cHk8OGGzVF8CpPe5b32JRE2oxORCX4516UIcpA": {
+    "EventUnderscorereceiveLambdaVersionnpcaHRX6NawYcF7qd6vGoDQhLmmGgInW7un0yKGe0e4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "EventUnderscorereceiveLambdaFunction"
         },
-        "CodeSha256": "gxEui+Pzd8KYq+d2S9MAVCoUFtBJfgUW1HFI79a4Gz0="
+        "CodeSha256": "xNJD2jq/cXbza6iOKtYN1o64wSh45Cna7oC02QcvFks="
       }
     },
     "ApiGatewayRestApi": {
@@ -249,7 +268,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1541707309060": {
+    "ApiGatewayDeployment1541709043674": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -308,6 +327,29 @@
           ]
         }
       }
+    },
+    "KarmaDynamoDbTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "karma_id",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "karma_id",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        },
+        "TableName": "karmabot-tutorial-karma-dev"
+      }
     }
   },
   "Outputs": {
@@ -319,7 +361,7 @@
     "EventUnderscorereceiveLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "EventUnderscorereceiveLambdaVersionAu4cHk8OGGzVF8CpPe5b32JRE2oxORCX4516UIcpA"
+        "Ref": "EventUnderscorereceiveLambdaVersionnpcaHRX6NawYcF7qd6vGoDQhLmmGgInW7un0yKGe0e4"
       }
     },
     "ServiceEndpoint": {
