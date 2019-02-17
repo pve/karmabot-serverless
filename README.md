@@ -1,7 +1,9 @@
 # karmabot-serverless
-Karma Slack bot, made with serverless. See https://www.sentialabs.io/2018/08/16/Building-a-Slackbot-with-Serverless-Framework.html
+Karma Slack bot, made with serverless. 
+See https://www.sentialabs.io/2018/08/16/Building-a-Slackbot-with-Serverless-Framework.html
 
-Setting up your local environment:
+Setting up your local development environment 
+(e.g. C9 or local machine or container):
 
 Check if you already registered your local environment ssh key at github.
 
@@ -12,7 +14,7 @@ Install serverless
 ```
 # Installing the serverless cli
 npm install -g serverless
-sls package
+sls package # set up a new sls package
 ```
 setup AWS credentials https://serverless.com/framework/docs/providers/aws/guide/credentials/
 ```
