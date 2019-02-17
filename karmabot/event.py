@@ -47,7 +47,7 @@ def handle_message(data):
             karma_word = match[0].strip()
             if karma_word == "<@{}>".format(poster_user_id):
                 print("A user tried to change his own karma")
-                warning = "Hey {}, you can't change your own karma!".format(
+                warning = "Hey {}, you can't change your own karma! Stop it!".format(
                     karma_word
                 )
                 send_message(data, warning)
