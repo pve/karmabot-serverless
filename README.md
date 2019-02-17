@@ -14,14 +14,16 @@ Install serverless
 ```
 # Installing the serverless cli
 npm install -g serverless
-sls package # set up a new sls package
+# sls package # set up a new sls package - first time only
 ```
 setup AWS credentials https://serverless.com/framework/docs/providers/aws/guide/credentials/
+
+you will need a deployment user with a policy such as in `sls-policy.json` (or tigher)
 ```
 sls deploy # running on AWS c9 might not need extra permissions.
 ```
 
-follow more steps.
+To run this as a bot in Slack, you need onetime configuration in Slack.
 
 
-BOT_TOKEN can also be entered in Lambda console (dont want that in Git)
+BOT_TOKEN can also be entered in Lambda console (you don't want that in Git).

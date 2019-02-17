@@ -1,0 +1,87 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:DeleteSubnet",
+                "states:DeleteStateMachine",
+                "iam:CreateRole",
+                "ec2:AttachInternetGateway",
+                "iam:PutRolePolicy",
+                "cloudformation:CreateChangeSet",
+                "dynamodb:DeleteTable",
+                "ec2:DeleteRouteTable",
+                "cloudformation:ContinueUpdateRollback",
+                "dynamodb:DescribeTable",
+                "ec2:CreateInternetGateway",
+                "cloudformation:UpdateStack",
+                "ec2:DeleteInternetGateway",
+                "cloudformation:List*",
+                "cloudformation:ExecuteChangeSet",
+                "iam:GetRole",
+                "lambda:List*",
+                "ec2:CreateTags",
+                "ec2:CreateRouteTable",
+                "kinesis:CreateStream",
+                "iam:DeleteRole",
+                "ec2:DetachInternetGateway",
+                "dynamodb:CreateTable",
+                "kinesis:DeleteStream",
+                "cloudformation:DeleteStack",
+                "ec2:DeleteVpc",
+                "ec2:CreateSubnet",
+                "ec2:DeleteNetworkAclEntry",
+                "cloudformation:ValidateTemplate",
+                "cloudformation:CreateUploadBucket",
+                "cloudformation:CancelUpdateStack",
+                "ec2:CreateVpc",
+                "cloudformation:UpdateTerminationProtection",
+                "cloudformation:EstimateTemplateCost",
+                "ec2:CreateSecurityGroup",
+                "iam:DeleteRolePolicy",
+                "ec2:CreateNetworkAcl",
+                "ec2:ModifyVpcAttribute",
+                "ec2:DeleteNetworkAcl",
+                "states:CreateStateMachine",
+                "s3:*",
+                "lambda:Update*",
+                "lambda:Get*",
+                "kinesis:DescribeStream",
+                "cloudformation:Describe*",
+                "ec2:Describe*",
+                "cloudformation:CreateStack",
+                "ec2:DeleteSecurityGroup",
+                "ec2:CreateNetworkAclEntry",
+                "cloudformation:Get*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:CreateFunction",
+                "lambda:AddPermission",
+                "lambda:InvokeFunction",
+                "lambda:DeleteFunction",
+                "lambda:PublishVersion",
+                "apigateway:GET",
+                "lambda:RemovePermission",
+                "lambda:CreateAlias"
+            ],
+            "Resource": [
+                "arn:aws:lambda:*:*:function:*",
+                "arn:aws:apigateway:*::/restapis"
+            ]
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "apigateway:*",
+            "Resource": "arn:aws:apigateway:*::*"
+        }
+    ]
+}

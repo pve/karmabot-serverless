@@ -106,7 +106,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/karmabot-tutorial/dev/1541709043658-2018-11-08T20:30:43.658Z/karmabot-tutorial.zip"
+          "S3Key": "serverless/karmabot-tutorial/dev/1550432621106-2019-02-17T19:43:41.106Z/karmabot-tutorial.zip"
         },
         "FunctionName": "karmabot-tutorial-dev-event_receive",
         "Handler": "karmabot/event.receive",
@@ -130,14 +130,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "EventUnderscorereceiveLambdaVersionnpcaHRX6NawYcF7qd6vGoDQhLmmGgInW7un0yKGe0e4": {
+    "EventUnderscorereceiveLambdaVersionMw1GGQov7wlzZKKShELlACHNJZ7zs4jMoqPUBfNjsM": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "EventUnderscorereceiveLambdaFunction"
         },
-        "CodeSha256": "xNJD2jq/cXbza6iOKtYN1o64wSh45Cna7oC02QcvFks="
+        "CodeSha256": "Esuk0bKv9O1CthXBawzT8/Q5GdDhQbyJyc7FjOHDqYs="
       }
     },
     "ApiGatewayRestApi": {
@@ -212,7 +212,7 @@
                 "method.response.header.Access-Control-Allow-Credentials": "'false'"
               },
               "ResponseTemplates": {
-                "application/json": ""
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin == \"*\") #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
               }
             }
           ]
@@ -268,7 +268,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1541709043674": {
+    "ApiGatewayDeployment1550432621134": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -361,7 +361,7 @@
     "EventUnderscorereceiveLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "EventUnderscorereceiveLambdaVersionnpcaHRX6NawYcF7qd6vGoDQhLmmGgInW7un0yKGe0e4"
+        "Ref": "EventUnderscorereceiveLambdaVersionMw1GGQov7wlzZKKShELlACHNJZ7zs4jMoqPUBfNjsM"
       }
     },
     "ServiceEndpoint": {
